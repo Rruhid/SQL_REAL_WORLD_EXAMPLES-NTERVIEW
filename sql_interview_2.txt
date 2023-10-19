@@ -1,0 +1,29 @@
+CREATE TABLE employees (
+    emp_id SERIAL PRIMARY KEY,
+    emp_name VARCHAR(50),
+    salary DECIMAL(10, 2),
+    department_id INT
+);
+
+-- Insert sample data into the employees table
+INSERT INTO employees (emp_name, salary, department_id) VALUES
+('John Smith', 55000.00, 1),
+('Jane Johnson', 60000.00, 1),
+('Bob Brown', 52000.00, 2),
+('Alice Davis', 62000.00, 2),
+('Tom Wilson', 59000.00, 3),
+('Sarah White', 58000.00, 3);
+
+_____________________________________________
+
+##Solving Interview Question 2
+
+SELECT e.empfname, e.emplname, CONCAT(e.empfname, ' ', e.emplname) AS f_l_combined
+, e2.empposition
+FROM employee e
+LEFT JOIN
+employeesalary e2
+ON e.empid = e2.empid
+WHERE e2.empposition = 'Manager'
+
+
